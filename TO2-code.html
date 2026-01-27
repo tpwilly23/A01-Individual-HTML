@@ -1,0 +1,61 @@
+<section id="inventory">
+            <h2>Donation Inventory</h2>
+            
+            <table border="1">
+                <caption>Current Toy Stock by Category</caption>
+                
+                <colgroup>
+                    <col span="1" style="background-color: #f2f2f2;"> <col span="2"> </colgroup>
+
+                <thead>
+                    <tr>
+                        <th>Item Category</th>
+                        <th>Durability Rating</th>
+                        <th>Stock Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rubber Chewers</td>
+                        <td>High</td>
+                        <td>450 units</td>
+                    </tr>
+                    <tr>
+                        <td>Plush Squeakers</td>
+                        <td>Medium</td>
+                        <td>1,200 units</td>
+                    </tr>
+                    <tr>
+                        <td>Interactive Puzzles</td>
+                        <td>High</td>
+                        <td>150 units</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">Total Inventory Count</td>
+                        <td>1,800 units</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <br>
+
+            <details>
+                <summary>Click here for Safety Guidelines</summary>
+                <p>All donated toys must be BPA-free and undergo sanitization[cite: 83].</p>
+            </details>
+
+            <br>
+
+            <button onclick="document.getElementById('spec-dialog').showModal()">View Toy Safety Specs</button>
+            
+            <dialog id="spec-dialog">
+                <h3>Toy Material Specifications</h3>
+                <ul>
+                    <li>Material: Non-toxic natural rubber</li>
+                    <li>Lead-free paint</li>
+                </ul>
+                <button onclick="document.getElementById('spec-dialog').close()">Close</button>
+            </dialog>
+        </section>
