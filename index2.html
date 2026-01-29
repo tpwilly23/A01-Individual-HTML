@@ -6,19 +6,31 @@
   <title>Tom Williams | Portfolio</title>
   <meta name="description" content="Personal portfolio of Tom Williams – projects, experience, and contact information." />
 
+  <!-- Modern App Touches (inspired by production React apps) -->
+  <meta name="theme-color" content="#0f172a" />
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Swiper (used subtly, like Alpha Futures) -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <style>
+    /* Swiper fade fix */
+    .swiper-fade .swiper-slide {
+      transition-property: opacity;
+    }
+  </style>
+
   <style>
     :root {
-      --primary: #0f172a; /* slate-900 */
-      --secondary: #334155; /* slate-600 */
-      --accent: #2563eb; /* blue-600 */
-      --bg: #f8fafc; /* slate-50 */
-      --card: #ffffff;
-      --border: #e5e7eb;
+      --primary: #f5f5f5;
+      --secondary: #a1a1aa;
+      --accent: #f97316;
+      --bg: #0b0b0d;
+      --card: #111113;
+      --border: #27272a;
     }
 
     * {
@@ -53,7 +65,8 @@
 
     /* Header */
     header {
-      background: var(--card);
+      background: rgba(17,17,19,0.85);
+      backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
@@ -87,6 +100,16 @@
       padding: 5rem 0 4rem;
     }
 
+    /* App-style Hero Slider */
+    .hero-swiper {
+      width: 100%;
+    }
+
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+    }
+
     .hero-grid {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
@@ -115,8 +138,12 @@
     }
 
     .btn-primary {
-      background: var(--accent);
-      color: white;
+      background: linear-gradient(135deg, #f97316, #fb923c);
+      color: #0a0a0a;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 0 2px rgba(249,115,22,0.6);
     }
 
     .btn-primary:hover {
@@ -130,10 +157,12 @@
     }
 
     .hero-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
+      background: rgba(17,17,19,0.6);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(249,115,22,0.25);
+      border-radius: 18px;
       padding: 2rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
     }
 
     /* Section */
@@ -143,8 +172,18 @@
 
     .section-title {
       font-size: 2rem;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
       text-align: center;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      width: 64px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      display: block;
+      margin: 1rem auto 0;
     }
 
     /* About */
@@ -164,11 +203,17 @@
     }
 
     .project-card {
-      background: var(--card);
+      background: linear-gradient(180deg, rgba(249,115,22,0.06), transparent);
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 1.75rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 0 1px rgba(249,115,22,0.45), 0 25px 45px rgba(0,0,0,0.7);
+      border-color: var(--accent);
     }
 
     .project-card:hover {
@@ -226,10 +271,24 @@
     /* Footer */
     footer {
       border-top: 1px solid var(--border);
-      padding: 2rem 0;
+      padding: 3rem 0 2rem;
       text-align: center;
       color: var(--secondary);
       font-size: 0.9rem;
+    }
+
+    .footer-links {
+      margin-bottom: 1rem;
+    }
+
+    .footer-links a {
+      margin: 0 0.75rem;
+      color: var(--secondary);
+      font-weight: 500;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
     }
 
     /* Responsive */
@@ -249,7 +308,7 @@
   <!-- Header -->
   <header>
     <div class="container nav">
-      <div class="logo">Tom Williams</div>
+      <div class="logo">Thomas Williams</div>
       <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
@@ -261,24 +320,51 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <h1>Building clean, reliable, and modern solutions.</h1>
-        <p>
-          I'm a student and entrepreneur with interests in technology, business,
-          and practical problem-solving. This portfolio highlights my work,
-          projects, and experience.
-        </p>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn-primary">View Projects</a>
-          <a href="#contact" class="btn-secondary">Get in Touch</a>
+    <div class="container">
+      <div class="swiper hero-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="hero-grid">
+              <div>
+                <h1>Building clean, reliable, and modern solutions.</h1>
+                <p>
+                  Entrepreneur and college student focused on technology,
+                  business systems, and execution.
+                </p>
+                <div class="hero-buttons">
+                  <a href="#projects" class="btn-primary">View Projects</a>
+                  <a href="#contact" class="btn-secondary">Get in Touch</a>
+                </div>
+              </div>
+              <div class="hero-card">
+                <h3>Quick Info</h3>
+                <p><strong>Location:</strong> Michigan, USA</p>
+                <p><strong>Focus:</strong> Tech • Business • Web</p>
+                <p><strong>Status:</strong> College Student</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="hero-grid">
+              <div>
+                <h1>Founder of a real-world service business.</h1>
+                <p>
+                  Hands-on experience running operations, sales, and automation
+                  for a growing exterior cleaning company.
+                </p>
+                <div class="hero-buttons">
+                  <a href="#projects" class="btn-primary">Top-Tier Exterior Cleaning</a>
+                </div>
+              </div>
+              <div class="hero-card">
+                <h3>Business Focus</h3>
+                <p>Residential & Commercial Services</p>
+                <p>Process Optimization</p>
+                <p>Customer Experience</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="hero-card">
-        <h3>Quick Info</h3>
-        <p><strong>Location:</strong> Michigan, USA</p>
-        <p><strong>Focus:</strong> Technology, Business, Web</p>
-        <p><strong>Status:</strong> College Student</p>
       </div>
     </div>
   </section>
@@ -341,6 +427,16 @@
       <h2 class="section-title">Experience</h2>
       <div class="timeline">
         <div class="timeline-item">
+          <h4>Core Skills & Highlights</h4>
+          <span>Resume Snapshot</span>
+          <ul style="margin-top:0.75rem; padding-left:1.25rem; color: var(--secondary);">
+            <li>Built and operated a revenue-generating service business from the ground up</li>
+            <li>Hands-on experience with sales outreach, client communication, and scheduling systems</li>
+            <li>Comfortable with HTML, CSS, basic JavaScript, databases, and automation tools</li>
+            <li>Strong written and verbal communication; client-facing and team-oriented</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
           <h4>Owner – Top-Tier Exterior Cleaning</h4>
           <span>2024 – Present</span>
           <p>
@@ -375,9 +471,28 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      © 2026 Tom Williams. All rights reserved.
+      <div class="footer-links">
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+        <a href="mailto:thomaspatrickwilliams2004@gmail.com">Email</a>
+      </div>
+      © 2026 Thomas Williams. All rights reserved.
     </div>
   </footer>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    new Swiper('.hero-swiper', {
+      loop: true,
+      autoplay: {
+        delay: 6000,
+        disableOnInteraction: false
+      },
+      effect: 'fade',
+      fadeEffect: { crossFade: true }
+    });
+  </script>
 
 </body>
 </html>
