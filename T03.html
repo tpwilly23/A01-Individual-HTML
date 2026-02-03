@@ -1,0 +1,60 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adopt-a-Dragon - Find Your Perfect Companion</title>
+
+    <!-- INLINE CSS -->
+    <style>
+        /* FLEX CONTAINER */
+        .container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* MAIN CONTENT */
+        main {
+            flex: 2;
+            background-color: #f0f4f8;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        /* SIDEBAR */
+        aside {
+            flex: 1;
+            background-color: #e6f2ff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+
+        /* SECTIONS INSIDE MAIN */
+        main section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px dashed #bbb;
+            background-color: #ffffff;
+            border-radius: 5px;
+        }
+
+        /* OPTIONAL: Sticky Header */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            z-index: 100;
+        }
+    </style>
+</head>
